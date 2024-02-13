@@ -3,11 +3,13 @@
 <head>
     <title>My Google-like Landing Page</title>
     <style>
+        /* Add your CSS here */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
@@ -17,7 +19,8 @@
             text-align: center;
         }
         .search-container input[type="text"] {
-            width: 400px;
+            width: 80%;
+            max-width: 400px;
             height: 30px;
             padding: 3px;
             font-size: 16px;
@@ -27,6 +30,14 @@
             background-color: #f8f8f8;
             font-size: 14px;
             margin-left: 10px;
+        }
+        @media (max-width: 600px) {
+            .search-container input[type="text"] {
+                width: 70%;
+            }
+        }
+        #game {
+            margin-top: 50px;
         }
     </style>
 </head>
@@ -39,5 +50,28 @@
             <input type="submit" value="Google Search">
         </form>
     </div>
+    <div id="game">
+        <h2>Guess the Number Game</h2>
+        <p>Guess a number between 1 and 100:</p>
+        <input type="number" id="guess" min="1" max="100">
+        <button onclick="checkGuess()">Guess</button>
+        <p id="message"></p>
+    </div>
+    <script>
+        var numberToGuess = Math.floor(Math.random() * 100) + 1;
+
+        function checkGuess() {
+            var guess = document.getElementById('guess').value;
+            var message = document.getElementById('message');
+
+            if (guess < numberToGuess) {
+                message.textContent = 'Too low!';
+            } else if (guess > numberToGuess) {
+                message.textContent = 'Too high!';
+            } else {
+                message.textContent = 'Congratulations, you guessed it!';
+            }
+        }
+    </script>
 </body>
 </html>
