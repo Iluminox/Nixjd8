@@ -13,31 +13,40 @@
             height: 100vh;
             background-color: #f5f5f5;
         }
-        .search-container {
+        .game-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .game {
+            margin: 10px;
             text-align: center;
+            transition: transform 0.3s;
         }
-        .search-container input[type="text"] {
-            padding: 10px;
-            width: 300px;
-            border: 1px solid #ddd;
-            border-radius: 24px;
+        .game:hover {
+            transform: scale(1.1);
         }
-        .search-container input[type="submit"] {
-            padding: 10px 20px;
-            border: none;
-            background-color: #4285f4;
-            color: white;
-            border-radius: 24px;
-            margin-left: 10px;
+        .game img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+        }
+        .game h2 {
+            margin: 0;
         }
     </style>
 </head>
 <body>
-    <div class="search-container">
-        <img src="logo.png" alt="Logo" width="150">
-        <h1>Welcome to My Game Website</h1>
-        <input type="text" placeholder="Search games...">
-        <input type="submit" value="Search">
+    <div class="game-container">
+        <div class="game">
+            <img src="game1.png" alt="Game 1">
+            <h2>Game 1</h2>
+        </div>
+        <div class="game">
+            <img src="game2.png" alt="Game 2">
+            <h2>Game 2</h2>
+        </div>
+        <!-- Add more games here -->
     </div>
 </body>
 </html>
